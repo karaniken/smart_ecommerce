@@ -24,6 +24,6 @@ sudo
 - Week 4 – Server‑Side & Authentication (coming)
 - Week 5 – CRUD & Database Integration (coming)
 
-Each week’s folder contains a detailed step‑by‑>
+Each week’s folder contains a detailed step‑by step guide on how each weeks work was approached then uploaded‑>
 
 
