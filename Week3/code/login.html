@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Week 3</title>
+    <style>
+        body { font-family: Arial; max-width: 400px; margin: 50px auto; padding: 20px; }
+        .error { color: red; font-size: 0.9em; margin-top: 5px; }
+        input { width: 100%; padding: 8px; margin: 5px 0 15px; }
+        button { background: #2c3e50; color: white; padding: 10px; border: none; cursor: pointer; }
+        .strength { margin-top: -10px; margin-bottom: 15px; font-size: 0.9em; }
+        .weak { color: red; } .medium { color: orange; } .strong { color: green; }
+    </style>
+</head>
+<body>
+    <h2>Login Form with Validation</h2>
+    <form id="loginForm" action="process.php" method="POST">
+        <label>Email:</label>
+        <input type="email" id="email" name="email">
+        <div id="emailError" class="error"></div>
+
+        <label>Password:</label>
+        <input type="password" id="password" name="password">
+        <div id="strengthMsg" class="strength"></div>
+        <div id="passwordError" class="error"></div>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const emailError = document.getElementById('emailError');
+        const passwordError = document.getElementById('passwordError');
+        const strengthMsg = document.getElementById('strengthMsg');
+
+        function validateEmail() {
+            const email = emailInput.value.trim();
+            if (email === '') {
+                emailError.textContent = 'Email is required';
+                return false;
+            } else if (!email.includes('@') || !email.includes('.')) {
+                emailError.textContent = 'Enter a valid email address';
+                return false;
+            } else {
+                emailError.textContent = '';
+                return true;
+            }
+        }
+
+        function checkStrength() {
+            const pwd = passwordInput.value;
+            if (pwd.length === 0) {
+                strengthMsg.innerHTML = '';
+                return;
+            }
+            if (pwd.length >= 8 && /[A-Z]/.test(pwd) && /[0-9]/.test(pwd)) {
+                strengthMsg.innerHTML = '<span class="strong">Strong password</span>';
+            } else if (pwd.length >= 6) {
+                strengthMsg.innerHTML = '<span class="medium">Medium password</span>';
+            } else {
+                strengthMsg.innerHTML = '<span class="weak">Weak password</span>';
+            }
+        }
+
+        function validatePassword() {
+            const pwd = passwordInput.value;
+            if (pwd === '') {
+                passwordError.textContent = 'Password is required';
+                return false;
+            } else if (pwd.length < 6) {
+                passwordError.textContent = 'Password must be at least 6 characters';
+                return false;
+            } else {
+                passwordError.textContent = '';
+                return true;
+            }
+        }
+
+        emailInput.addEventListener('input', validateEmail);
+        passwordInput.addEventListener('input', () => {
+            validatePassword();
+            checkStrength();
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            if (!validateEmail() || !validatePassword()) {
+                e.preventDefault();
+                alert('Please fix validation errors');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Manipulation Demo</title>
+    <style>
+        body { font-family: Arial; max-width: 500px; margin: 50px auto; }
+        button { margin: 5px; padding: 8px; }
+        #preview { border: 1px solid #ccc; padding: 10px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h2>Live Text Preview</h2>
+    <textarea id="textInput" rows="4" cols="50" placeholder="Type something..."></textarea>
+    <div id="preview"></div>
+
+    <button id="hideBtn">Hide Preview</button>
+    <button id="showBtn">Show Preview</button>
+    <button id="toggleBtn">Toggle Preview</button>
+
+    <script>
+        const input = document.getElementById('textInput');
+        const preview = document.getElementById('preview');
+
+        input.addEventListener('input', function() {
+            preview.innerHTML = this.value;
+        });
+
+        document.getElementById('hideBtn').addEventListener('click', function() {
+            preview.style.display = 'none';
+        });
+
+        document.getElementById('showBtn').addEventListener('click', function() {
+            preview.style.display = 'block';
+        });
+
+        document.getElementById('toggleBtn').addEventListener('click', function() {
+            if (preview.style.display === 'none') {
+                preview.style.display = 'block';
+            } else {
+                preview.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
