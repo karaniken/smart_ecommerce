@@ -10,7 +10,8 @@ Design wireframes and GUI mockups for the Smart E-Commerce web application, plan
 ## Step-by-Step Actions
 
 ### 1. Wireframes
-I used draw.io (online) to sketch four key screens:
+I used claude running as part of figma make - a web application builder that lets you create React + Tailwind apps through conversation (online)
+to sketch four key screens:
 
 - **Homepage** – product grid, navigation.  
   ![Homepage wireframe](screenshots/fig1-wireframe-home.png)  
@@ -55,7 +56,7 @@ This 3 hours I focused on planning the user experience before coding.
 
 1.I learned that wireframes help visualise the layout and user flow without getting lost in technical details. 
 
-2.I used figma ai to create simple but clear wireframes for the homepage, login, dashboard, and product page.
+2.I used figma + claude ai to create simple but clear wireframes for the homepage, login, dashboard, and product page.
 
 3.The HTML/CSS mockup gave me a chance to test colour schemes and responsiveness – I chose a dark header with orange call-to-action buttons for contrast. 
 
